@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Student} from "./student";
 
 @Component({
     selector: 'my-app',
-    template: `<h1>{{ title }}</h1>`
+    template: `
+    <div>
+        <ul>
+            <li *ngFor="let student of students">
+            {{ student.firstname }}
+            {{ student.lastname }}
+            </li>
+        </ul>
+    </div>`
 })
 export class AppComponent {
-  title: string;
-
-    constructor() {
-        this.title = "Hallo Welt!";
-        setTimeout(() => {
-            this.title = "hallo 1"
-            }, 2500
-        )
-    }
+    students = [
+        new Student("Erik", "Müller"),
+        new Student("Max", "Mustermann"),
+        new Student("Harald", "Junke")
+    ];
 }

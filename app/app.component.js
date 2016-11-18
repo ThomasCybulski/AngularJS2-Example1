@@ -9,18 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var student_1 = require("./student");
 var AppComponent = (function () {
     function AppComponent() {
-        var _this = this;
-        this.title = "Hallo Welt!";
-        setTimeout(function () {
-            _this.title = "hallo 1";
-        }, 2500);
+        this.students = [
+            new student_1.Student("Erik", "Müller"),
+            new student_1.Student("Max", "Mustermann"),
+            new student_1.Student("Harald", "Junke")
+        ];
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{ title }}</h1>"
+            template: "\n    <div>\n        <ul>\n            <li *ngFor=\"let student of students\">\n            {{ student.firstname }}\n            {{ student.lastname }}\n            </li>\n        </ul>\n    </div>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
